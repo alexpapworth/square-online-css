@@ -16,6 +16,12 @@ Title this `Custom CSS`, and paste in the Javascript. Select `<head>` so the cod
 
 ![Edit code](readme-images/edit-code.png)
 
+### Note:
+
+You'll need to hit `Publish` after each change to the Javascript for it to take affect on the site.
+
+You'll also need to load the proper site in order to see the changes. Editing on live, woo! 🎉
+
 ## How it works
 
 The Javascript will be executed on every page load. Because we can't control if the Javascript will load before or after the elements we want to change, we poll every 10th of a second (100ms). We also accommodate for elements that might load *after* similar elements of that class have appeared on the page, so we will continue polling for another second, re-applying the inline style to all matching elements.
