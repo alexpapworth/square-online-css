@@ -15,10 +15,16 @@
           clearInterval(customCSSInterval);
         }
 
+        // Buttons
         for (var i = 0; i < document.querySelectorAll('.w-button').length; i++) {
           document.querySelectorAll('.w-button')[i].style.fontFamily = "var(--body-font)";
           document.querySelectorAll('.w-button')[i].style.fontWeight = "500";
         }
+
+        // Logo
+        document.querySelector('.w-sitelogo img').style.setProperty('--width', '190px')
+        document.querySelector('.w-sitelogo img').style.setProperty('--mobile-width', '140px')
+
         console.log("Custom styling applied")
       }
     }
