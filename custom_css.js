@@ -25,6 +25,11 @@
         document.querySelector('.w-sitelogo img').style.setProperty('--width', '190px')
         document.querySelector('.w-sitelogo img').style.setProperty('--mobile-width', '140px')
 
+        // Navigation and Shop page Categories
+        for (var i = 0; i < document.querySelectorAll('.w-nav').length; i++) {
+          document.querySelectorAll('.w-nav')[i].style.fontFamily = "var(--body-font)";
+        }
+
         console.log("Custom styling applied")
       }
     }
