@@ -35,6 +35,8 @@
     }
 
     function retriggerCustomCSS() {
+      clearInterval(customCSSInterval);
+
       customCSSInterval = setInterval(customCSS, 100);
       totalCount = 0;
 
