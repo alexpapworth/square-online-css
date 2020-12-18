@@ -33,4 +33,13 @@
         console.log("Custom styling applied")
       }
     }
+
+    function retriggerCustomCSS() {
+      customCSSInterval = setInterval(customCSS, 100);
+      totalCount = 0;
+
+      customCSS();
+    }
+
+    window.addEventListener('click', retriggerCustomCSS);
 </script>
