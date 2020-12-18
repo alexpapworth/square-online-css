@@ -30,6 +30,11 @@
           document.querySelectorAll('.w-nav')[i].style.fontFamily = "var(--body-font)";
         }
 
+        // Filter dropdown
+        for (var i = 0; i < document.querySelectorAll('.select__container select').length; i++) {
+          document.querySelectorAll('.select__container select')[i].style.fontFamily = "var(--body-font)";
+        }
+
         console.log("Custom styling applied")
       }
     }
