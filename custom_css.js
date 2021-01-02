@@ -1,57 +1,70 @@
 <script type="application/javascript">
-  var customCSSInterval = setInterval(customCSS, 100);
-  var totalCount = 0;
+  var w = window
+  var d = document
 
-  function customCSS() {
-    if (document.querySelectorAll('.w-button').length == 0) {
-      console.log("Polling for elements")
+  function setup() {
+    for (var i = 1; i < 6; i++) {
+      w['total'+i] = 0
+      w['poller'+i] = 0
+    }
+
+    // Buttons
+    w.interval1 = setInterval(pollAndApply, 100, '.w-button', 20, '1', 'button')
+    // Logo
+    w.interval2 = setInterval(pollAndApply, 100, '.w-sitelogo img', 20, '2', 'logo')
+    // Navigation and Shop page Categories
+    w.interval3 = setInterval(pollAndApply, 100, '.w-nav', 20, '3')
+    // Filter dropdown
+    w.interval4 = setInterval(pollAndApply, 100, '.select__container select', 20, '4')
+    // Breadcrumbs
+    w.interval5 = setInterval(pollAndApply, 100, '.crumb', 20, '5')
+  }
+
+  function clearAll() {
+    for (var i = 1; i < 6; i++) {
+      clearInterval(w['interval'+i])
+    }
+  }
+
+  function pollAndApply(cssClass, pollCount, number, extraConfig) {
+    if (d.querySelectorAll(cssClass).length == 0) {
+      w['total'+number] += 1
+
+      if (w['total'+number] > 100) {
+        clearInterval(w['interval'+number])
+      }
+
       return
     }
     else {
-      if (totalCount < 10) {
-        totalCount += 1;
+      if (w['poller'+number] < pollCount) {
+        w['poller'+number] += 1
       }
       else {
-        clearInterval(customCSSInterval);
+        clearInterval(w['interval'+number])
       }
 
-      // Buttons
-      for (var i = 0; i < document.querySelectorAll('.w-button').length; i++) {
-        document.querySelectorAll('.w-button')[i].style.fontFamily = "var(--body-font)";
-        document.querySelectorAll('.w-button')[i].style.fontWeight = "500";
+      if (extraConfig === "logo") {
+        d.querySelector(cssClass).style.setProperty('--width', '190px')
+        d.querySelector(cssClass).style.setProperty('--mobile-width', '140px')
       }
+      else {
+        for (var i = 0; i < d.querySelectorAll(cssClass).length; i++) {
+          d.querySelectorAll(cssClass)[i].style.fontFamily = "var(--body-font)"
 
-      // Logo
-      document.querySelector('.w-sitelogo img').style.setProperty('--width', '190px')
-      document.querySelector('.w-sitelogo img').style.setProperty('--mobile-width', '140px')
-
-      // Navigation and Shop page Categories
-      for (var i = 0; i < document.querySelectorAll('.w-nav').length; i++) {
-        document.querySelectorAll('.w-nav')[i].style.fontFamily = "var(--body-font)";
+          if (extraConfig === 'button')
+            d.querySelectorAll(cssClass)[i].style.fontWeight = "500"
+        }
       }
-
-      // Filter dropdown
-      for (var i = 0; i < document.querySelectorAll('.select__container select').length; i++) {
-        document.querySelectorAll('.select__container select')[i].style.fontFamily = "var(--body-font)";
-      }
-
-      // Breadcrumbs
-      for (var i = 0; i < document.querySelectorAll('.crumb').length; i++) {
-        document.querySelectorAll('.crumb')[i].style.fontFamily = "var(--body-font)";
-      }
-
-      console.log("Custom styling applied")
     }
   }
 
-  function retriggerCustomCSS() {
-    clearInterval(customCSSInterval);
-
-    customCSSInterval = setInterval(customCSS, 100);
-    totalCount = 0;
-
-    customCSS();
+  function retrigger() {
+    clearAll()
+    setup()
   }
 
-  window.addEventListener('click', retriggerCustomCSS);
+  w.addEventListener('click', retrigger)
+
+  setup()
 </script>
