@@ -35,6 +35,11 @@
           document.querySelectorAll('.select__container select')[i].style.fontFamily = "var(--body-font)";
         }
 
+        // Breadcrumbs
+        for (var i = 0; i < document.querySelectorAll('.crumb').length; i++) {
+          document.querySelectorAll('.crumb')[i].style.fontFamily = "var(--body-font)";
+        }
+
         console.log("Custom styling applied")
       }
     }
