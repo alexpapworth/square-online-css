@@ -34,4 +34,4 @@ Once one second of polling is up (after the initial unlimited polling for the fi
 
 ## Credit
 
-If you found this hack useful, check out our store at https://bitbybitbysienna.com!
+If you found this hack useful, check out our store: [Bit by Bit by Sienna](https://bitbybitbysienna.com)!
