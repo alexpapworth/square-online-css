@@ -18,6 +18,8 @@
     w.interval4 = setInterval(pollAndApply, 100, '.select__container select', 20, '4')
     // Breadcrumbs
     w.interval5 = setInterval(pollAndApply, 100, '.crumb', 20, '5')
+    // Price
+    w.interval5 = setInterval(pollAndApply, 100, '.product-price__wrapper', 20, '6', 'price')
   }
 
   function clearAll() {
@@ -54,6 +56,9 @@
 
           if (extraConfig === 'button')
             doc.querySelectorAll(cssClass)[i].style.fontWeight = "500"
+
+          if (extraConfig === 'price')
+            doc.querySelectorAll(cssClass)[i].style.fontSize = "12px"
         }
       }
     }
