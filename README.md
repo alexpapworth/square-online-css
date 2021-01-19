@@ -8,6 +8,8 @@ So, we've developed an awesome hack to apply inline styles to certain elements a
 
 ## Installing
 
+First, take a look at the code in the [`custom_css.js`](https://github.com/alexpapworth/square-online-css/blob/main/custom_css.js) file. Modify this to your liking by selecting CSS classes and applying styles.
+
 To set up/update, navigate to **Website** > **Integrations**. Scroll to the bottom and click `+ Add new code`.
 
 ![Add new code](readme-images/add-new-code.png)
@@ -16,11 +18,13 @@ Title this `Custom CSS`, and paste in the Javascript. Select `<head>` so the cod
 
 ![Edit code](readme-images/edit-code.png)
 
-### Note:
+### Notes:
 
 You'll need to hit `Publish` after each change to the Javascript for it to take affect on the site.
 
 You'll also need to load the proper site in order to see the changes. Editing on live, woo! 🎉
+
+If your script is over the 2,000 character limit, try [minifying](https://javascript-minifier.com/) it.
 
 ## How it works
 
