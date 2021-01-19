@@ -1,4 +1,4 @@
-# Bit by Bit Custom CSS for Square Online Store
+# Custom CSS for Square Online Store
 
 We are using [Square](http://square.online/) for our online shop and, as of December 2020, they don't have an option for custom CSS.
 
