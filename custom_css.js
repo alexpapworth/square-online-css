@@ -1,6 +1,6 @@
 <script type="application/javascript">
   var w = window
-  var d = document
+  var doc = document
 
   function setup() {
     for (var i = 1; i < 6; i++) {
@@ -27,7 +27,7 @@
   }
 
   function pollAndApply(cssClass, pollCount, number, extraConfig) {
-    if (d.querySelectorAll(cssClass).length == 0) {
+    if (doc.querySelectorAll(cssClass).length == 0) {
       w['total'+number] += 1
 
       if (w['total'+number] > 100) {
@@ -45,15 +45,15 @@
       }
 
       if (extraConfig === "logo") {
-        d.querySelector(cssClass).style.setProperty('--width', '190px')
-        d.querySelector(cssClass).style.setProperty('--mobile-width', '140px')
+        doc.querySelector(cssClass).style.setProperty('--width', '190px')
+        doc.querySelector(cssClass).style.setProperty('--mobile-width', '140px')
       }
       else {
-        for (var i = 0; i < d.querySelectorAll(cssClass).length; i++) {
-          d.querySelectorAll(cssClass)[i].style.fontFamily = "var(--body-font)"
+        for (var i = 0; i < doc.querySelectorAll(cssClass).length; i++) {
+          doc.querySelectorAll(cssClass)[i].style.fontFamily = "var(--body-font)"
 
           if (extraConfig === 'button')
-            d.querySelectorAll(cssClass)[i].style.fontWeight = "500"
+            doc.querySelectorAll(cssClass)[i].style.fontWeight = "500"
         }
       }
     }
